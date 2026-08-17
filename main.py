@@ -16,7 +16,7 @@ def main():
         choice = input("선택: ").strip()
 
         if not choice.isdigit():
-            print("숫자를 입력해주세요.")
+            print("메뉴에 있는 숫자를 입력해주세요.")
             continue
 
         choice = int(choice)
