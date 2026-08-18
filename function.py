@@ -13,10 +13,10 @@ def show_menu():
         for key, label in MENU.items():
             print(f"{key}. {label}")
 
-def add_prompt(): print("[미구현] 프롬프트 추가")
-def show_list(): print("[미구현] 프롬프트 목록")
-def view_by_category(): print("[미구현] 카테고리별 조회")
-def search_prompt(): print("[미구현] 프롬프트 검색")
-def prompt_details(): print("[미구현] 프롬프트 상세 보기")
-def manage_favorites(): print("[미구현] 즐겨찾기 관리")
-def show_favorites(): print("[미구현] 즐겨찾기 목록")
+def prompt_details(prompts): return "menu"
+def add_prompt(prompts): return "menu"
+def show_list(prompts): return "menu"
+def view_by_category(prompts): return "menu"
+def search_prompt(prompts): return "menu"
+def manage_favorites(prompts): return "menu"
+def show_favorites(prompts): return "menu"
