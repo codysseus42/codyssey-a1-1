@@ -45,6 +45,7 @@ mother in her mid 30s wearing a beige cardigan,
 cinematic advertising photography, soft warm key light, shallow depth of field
 --ar 3:2  --raw  --stylize 120 """
     prompts  = [{"id":1, "title":"노코드 고양이 정보","content":CAT_ANALYZER,"category":"자동화","favorite":True},{"id":2, "title":"고양이 사진 생성","content":MJ_CAT,"category":"이미지 생성","favorite":False},{"id":3, "title":"가족사진생성","content":MJ_FAMILY,"category":"이미지 생성","favorite":True}]
+ #   prompts  = []
     while True:
         fn.show_menu()
         choice = input("번호입력: ").strip()
