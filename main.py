@@ -47,7 +47,7 @@ cinematic advertising photography, soft warm key light, shallow depth of field
     prompts  = [{"id":1, "title":"노코드 고양이 정보","content":CAT_ANALYZER,"category":"자동화","favorite":True},{"id":2, "title":"고양이 사진 생성","content":MJ_CAT,"category":"이미지 생성","favorite":False},{"id":3, "title":"가족사진생성","content":MJ_FAMILY,"category":"이미지 생성","favorite":True}]
     while True:
         fn.show_menu()
-        choice = input("선택: ").strip()
+        choice = input("번호입력: ").strip()
 
         if not choice.isdigit():
             print("메뉴에 있는 숫자를 입력해주세요.")
