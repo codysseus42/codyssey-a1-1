@@ -27,7 +27,7 @@ def show_list(prompts):
             print(f"총 {len(prompts)}개의 프롬프트가 있습니다.")
         choice = input("선택: ").strip()
         if choice == "0":
-            return 
+            return "menu"
 def view_by_category(prompts): return "menu"
 def search_prompt(prompts): return "menu"
 def manage_favorites(prompts): return "menu"
