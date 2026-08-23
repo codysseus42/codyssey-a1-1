@@ -38,12 +38,14 @@ creamy white face blaze, chest, arms and paws in uniform solid cream white, long
 striking blue eyes, pink nose, wearing blue denim overalls, alert curious expression looking at camera, natural relaxed posture with weight on one leg and one paw slightly raised,
 full body, plain light gray studio background, soft warm natural lighting, shot on 85mm lens, shallow depth of field, cinematic advertising photography
  --ar 3:4 --style raw --stylize 130 --weird 0"""
+ 
     MJ_FAMILY = """photorealistic candid family portrait, American family of three in a bright modern living room, 
 father in his late 30s wearing a casual navy sweater, 
 mother in her mid 30s wearing a beige cardigan, 
 7 year old boy in a striped t-shirt, 
 cinematic advertising photography, soft warm key light, shallow depth of field
 --ar 3:2  --raw  --stylize 120 """
+
     prompts  = [{"id":1, "title":"노코드 고양이 정보","content":CAT_ANALYZER,"category":"자동화","favorite":True},{"id":2, "title":"고양이 사진 생성","content":MJ_CAT,"category":"이미지 생성","favorite":False},{"id":3, "title":"가족사진생성","content":MJ_FAMILY,"category":"이미지 생성","favorite":True}]
  #   prompts  = []
     while True:

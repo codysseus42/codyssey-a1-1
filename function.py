@@ -9,6 +9,15 @@ MENU = {1: "프롬프트 추가",
             0: "종료"
         }
 
+CATEGORY = {
+            1: "텍스트 생성", 
+            2: "이미지 생성",
+            3: "영상 생성",
+            4: "페르소나",
+            5: "자동화",
+            6: "기타"
+        }
+
 def find_by_id(prompts, target_id):
     for p in prompts:
         if p["id"] == target_id:
@@ -47,7 +56,66 @@ def prompt_details(prompts,index = None):
             )
         index = None
 
-def add_prompt(prompts): return "menu"
+def add_prompt(prompts):
+    while True:
+        print("=== 프롬프트 추가 ===")
+        print("메뉴로 나가려면 0을 이전메뉴로 돌아가려면 99을 입력해주세요..")
+        while True:
+            title = input("제목:").strip()
+            if not title:
+                print("제목을 입력 해주세요.")
+                continue
+            if title == "0":
+                return "menu"
+            if title == "99":
+                return "back"
+            duplicated = False
+            for p in prompts:
+                if p["title"] == title:
+                    duplicated = True
+                    break
+            if duplicated:    
+                print("중복된 제목의 프롬프트를 추가 할 수 없습니다.")
+                continue
+            break
+
+        while True:
+            content = input("내용:").strip()
+            if not content:
+                print("내용을 입력 해주세요.")
+                continue
+            if content == "0":
+                return "menu"
+            if content == "99":
+                return "back"
+            break
+
+        while True:
+            print("카테고리 선택")
+            for key, label in CATEGORY.items():
+                print(f"{key}) {label}")
+            category = input("선택:").strip()
+            if not category:
+                print("카테고리를 선택해주세요.")
+                continue
+            if not category.isdigit():
+                print("카테고리 목록의 번호를 선택해주세요.")
+                continue
+            if category == "0":
+                return "menu"
+            if category == "99":
+                return "back"
+            category = int(category)
+            if category in CATEGORY:
+                break
+            print("카테고리 목록의 번호를 선택해주세요.") 
+
+        prompt = {"id":max((p["id"] for p in prompts), default=0) + 1, "title":title,"content":content,"category":CATEGORY[category],"favorite":False}
+        prompts.append(prompt)
+        print("프롬프트가 추가 되었습니다.")
+        if prompt_details(prompts, len(prompts)-1) == "menu":
+            return "menu"
+
 def show_list(prompts):
     if not prompts:
         print("등록된 프롬프트가 없습니다.")
