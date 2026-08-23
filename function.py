@@ -23,6 +23,12 @@ def find_by_id(prompts, target_id):
         if p["id"] == target_id:
             return p
     return None
+    
+def print_prompt_lines(prompts):
+    for i, p in enumerate(prompts, 1):
+        star = " ⭐️" if p["favorite"] else ""
+        print(f"{i}. [{p['category']}] 제목: {p['title']}{star}, ID: {p['id']}")
+    print(f"총 {len(prompts)}개의 프롬프트가 있습니다.")
 
 def show_menu():
         print("=== 나만의 프롬프트 관리 ===")
@@ -123,10 +129,7 @@ def show_list(prompts):
 
     while True:
         print("=== 프롬프트 목록 ===\n상세보기를 하려면 번호를, 메뉴로 나가려면 0을 입력해주세요.")
-        for i, p in enumerate(prompts, 1):
-            star = " ⭐️" if p["favorite"] else ""
-            print(f"{i}. [{p['category']}] 제목: {p['title']}{star}, ID: {p['id']}")
-        print(f"총 {len(prompts)}개의 프롬프트가 있습니다.")
+        print_prompt_lines(prompts)
 
         choice = input("선택: ").strip()
         if choice == "0":
@@ -141,7 +144,46 @@ def show_list(prompts):
                 return "menu"
         else:
             print("목록에 있는 번호를 선택해주세요.")
-def view_by_category(prompts): return "menu"
+
+def view_by_category(prompts):
+    print("=== 카테고리별 조회 ===")
+    if not prompts:
+        print("등록된 프롬프트가 없습니다.")
+        return "menu"
+    print("카테고리 선택")
+    for key, label in CATEGORY.items():
+        print(f"{key}) {label}")
+    while True:
+        category = input("선택:").strip()
+        if not category:
+            print("카테고리를 선택해주세요.")
+            continue
+        if not category.isdigit():
+            print("카테고리 목록의 번호를 선택해주세요.")
+            continue
+        category = int(category)
+        if category == 0:
+            return "menu"
+        if category in CATEGORY:
+            category_prompts = []
+            for p in prompts:
+                if p['category'] == CATEGORY[category]:
+                    category_prompts.append(p)
+            if not category_prompts:
+                print(f"{category}) {CATEGORY[category]}에 속한 프롬프트가 없습니다.")
+                continue
+            else:
+                print_prompt_lines(category_prompts)
+                continue
+        else : 
+            print("카테고리 목록의 번호를 선택해주세요.")
+    
+
+    if not category_prompts: 
+        print
+
+
+    return "menu"
 def search_prompt(prompts): return "menu"
 def manage_favorites(prompts): return "menu"
 def show_favorites(prompts): return "menu"
