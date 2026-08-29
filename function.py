@@ -26,7 +26,7 @@ def find_by_id(prompts, target_id):
     return None
     
 def print_prompt_lines(prompts):
-    for i, p in enumerate(prompts, 0):
+    for i, p in enumerate(prompts, 1):
         star = " ⭐️" if p["favorite"] else ""
         print(f"{i}. [{p['category']}] 제목: {p['title']}{star}, ID: {p['id']}, CNT:{p['cnt']}")
     print(f"총 {len(prompts)}개의 프롬프트가 있습니다.")
