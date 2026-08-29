@@ -15,7 +15,8 @@ CATEGORY = {
             3: "영상 생성",
             4: "페르소나",
             5: "자동화",
-            6: "기타"
+            6: "기타",
+            0: "종료"
         }
 
 def find_by_id(prompts, target_id):
@@ -25,7 +26,7 @@ def find_by_id(prompts, target_id):
     return None
     
 def print_prompt_lines(prompts):
-    for i, p in enumerate(prompts, 1):
+    for i, p in enumerate(prompts, 0):
         star = " ⭐️" if p["favorite"] else ""
         print(f"{i}. [{p['category']}] 제목: {p['title']}{star}, ID: {p['id']}, CNT:{p['cnt']}")
     print(f"총 {len(prompts)}개의 프롬프트가 있습니다.")
