@@ -147,7 +147,7 @@ def show_list(prompts):
             print("목록에 있는 번호를 선택해주세요.")
 
 def view_by_category(prompts):
-    print("=== 카테고리별 조회 ===")
+    print("=== 카테고리별 조회 ===\n메뉴로 나가려면 0을 입력해주세요.")
     if not prompts:
         print("등록된 프롬프트가 없습니다.")
         return "menu"
