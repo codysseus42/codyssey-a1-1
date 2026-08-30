@@ -15,9 +15,8 @@ CATEGORY = {
             3: "영상 생성",
             4: "페르소나",
             5: "자동화",
-            6: "기타",
-            0: "종료"
-        }
+            6: "기타"
+                    }
 
 def find_by_id(prompts, target_id):
     for p in prompts:
@@ -122,8 +121,7 @@ def add_prompt(prompts):
         prompt = {"id":max((p["id"] for p in prompts), default=0) + 1, "title":title,"content":content,"category":CATEGORY[category],"favorite":False, "cnt":0}
         prompts.append(prompt)
         print("프롬프트가 추가 되었습니다.")
-        if prompt_details(prompts, len(prompts)-1) == "menu":
-            return "menu"
+        return "menu"
 
 def show_list(prompts):
     if not prompts:
